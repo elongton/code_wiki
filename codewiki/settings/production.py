@@ -10,6 +10,7 @@ SECURE_FRAME_DENY               = True
 
 
 import os
+from codewiki.aws.conf import *
 from django.core.urlresolvers import reverse_lazy
 import dj_database_url
 
