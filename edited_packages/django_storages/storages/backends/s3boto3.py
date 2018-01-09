@@ -574,6 +574,9 @@ class S3Boto3Storage(Storage):
             return url
         return self._strip_signing_parameters(url)
 
+    def path(self, name):
+        return None
+
     def get_available_name(self, name, max_length=None):
         """Overwrite existing file with the same name."""
         if self.file_overwrite:
