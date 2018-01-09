@@ -11,9 +11,10 @@ SECURE_FRAME_DENY               = True
 
 import os
 from django.core.urlresolvers import reverse_lazy
+import dj_database_url
 
-
-
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 ALLOWED_HOSTS =  ['codewiki.herokuapp.com']
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -21,24 +22,17 @@ ALLOWED_HOSTS =  ['codewiki.herokuapp.com']
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 LOGIN_REDIRECT_URL = reverse_lazy('wiki:get', kwargs={'path': ''})
 
-
 # WIKI_ACCOUNT_HANDLING = False
 WIKI_ACCOUNT_SIGNUP_ALLOWED = False
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'z9+3vnm(jb0u@&w68t#5_e8s9-lbfhv-')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
 # Application definition
+
+SITE_ID = 1
+WSGI_APPLICATION = 'codewiki.wsgi.application'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -94,11 +88,6 @@ TEMPLATES = [
     },
 ]
 
-SITE_ID = 1
-
-WSGI_APPLICATION = 'codewiki.wsgi.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -109,7 +98,6 @@ DATABASES = {
     }
 }
 
-import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 DATABASES['default']['CONN_MAX_AGE'] = 500
@@ -137,13 +125,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
