@@ -9,7 +9,6 @@ django-classy-tags==0.8.0
 django-mptt==0.8.7
 django-nyt==1.0b6
 django-sekizai==0.10.0
--e git+https://github.com/elongton/codewiki.git@6cd51610482a5e18f01121806c8d31d6dc908e7c#egg=django_storages&subdirectory=edited_packages/django_storages
 docutils==0.14
 gunicorn==19.7.1
 html5lib==0.9999999
