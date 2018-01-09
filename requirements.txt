@@ -9,7 +9,7 @@ django-classy-tags==0.8.0
 django-mptt==0.8.7
 django-nyt==1.0b6
 django-sekizai==0.10.0
--e edited_packages/django_storages
+django-storages==1.6.5
 docutils==0.14
 gunicorn==19.7.1
 html5lib==0.9999999

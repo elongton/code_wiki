@@ -1,3 +1,0 @@
-include AUTHORS CHANGELOG.rst LICENSE README.rst requirements*.txt
-recursive-include tests *.py
-recursive-include docs Makefile conf.py make.bat *.rst
