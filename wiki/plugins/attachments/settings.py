@@ -50,7 +50,7 @@ UPLOAD_PATH_OBSCURIFY = getattr(
 #: to allow. For your own safety.
 FILE_EXTENSIONS = getattr(
     django_settings, 'WIKI_ATTACHMENTS_EXTENSIONS',
-    ['pdf', 'doc', 'odt', 'docx', 'txt'])
+    ['pdf', 'doc', 'odt', 'docx', 'txt', 'png', 'jpeg', 'jpg'])
 
 #: Storage backend to use, default is to use the same as the rest of the
 #: wiki, which is set in ``WIKI_STORAGE_BACKEND``, but you can override it
@@ -65,13 +65,13 @@ STORAGE_BACKEND = getattr(
 APPEND_EXTENSION = getattr(
     django_settings,
     'WIKI_ATTACHMENTS_APPEND_EXTENSION',
-    True)
+    False)
 
 #: Important for e.g. S3 backends: If your storage backend does not have a .path
 #: attribute for the file, but only a .url attribute, you should use False.
 #: This will reveal the direct download URL so it does not work perfectly for
 #: files you wish to be kept private.
-USE_LOCAL_PATH = getattr(django_settings, 'WIKI_ATTACHMENTS_LOCAL_PATH', True)
+USE_LOCAL_PATH = getattr(django_settings, 'WIKI_ATTACHMENTS_LOCAL_PATH', False)
 
 if (not USE_LOCAL_PATH) and APPEND_EXTENSION:
     raise ImproperlyConfigured(
