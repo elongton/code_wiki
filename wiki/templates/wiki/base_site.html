@@ -25,7 +25,7 @@
     {% block wiki_body %}
 
     {% block wiki_navbar %}
-    <div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar navbar-inverse" style="margin-bottom: 0px;">
       <div class="container">
         <div class="navbar-header">
           <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
@@ -35,7 +35,7 @@
             <span class="icon-bar"></span>
           </button>
           {% block wiki_header_branding %}
-          <a class="navbar-brand" href="{% url 'wiki:root' %}">django-\/\/ i K |</a>
+          <a class="navbar-brand" href="{% url 'wiki:root' %}">Max's CodeWiki</a>
           {% endblock %}
         </div>
         <div class="navbar-collapse collapse">
@@ -105,21 +105,21 @@
             </ul>
             {% else %}
             <ul class="nav navbar-nav">
-              <li>
+              <!-- <li>
                 <a href="{% login_url as wiki_login_url %}{{ wiki_login_url }}">{% trans "Log in" %}</a>
-              </li>
+              </li> -->
               {% if "ACCOUNT_HANDLING"|wiki_settings %}
-              <li>
+              <!-- <li>
                 <a href="{% url 'wiki:signup' %}">{% trans "Sign up" %}</a>
-              </li>
+              </li> -->
               {% endif %}
             </ul>
             {% endif %}
           </div>
           {% block wiki_header_navlinks %}
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">{% trans "Home" %}</a></li>
-            <li><a href="https://github.com/django-wiki/django-wiki" target="_blank">{% trans "About" %}</a></li>
+            <!-- <li class="active"><a href="/">{% trans "Home" %}</a></li>
+            <li><a href="https://github.com/django-wiki/django-wiki" target="_blank">{% trans "About" %}</a></li> -->
           </ul>
           {% endblock %}
         </div>
@@ -127,7 +127,7 @@
     </div>
     {% endblock %}
 
-    <div class="container" style="margin-top: 60px;">
+    <div class="container" style="margin-top: 30px;">
 
       {% wiki_messages %}
 
@@ -140,11 +140,11 @@
       <footer id="wiki-footer">
         <hr />
         {% block wiki_footer_logo %}
-        <a href="https://github.com/django-wiki/django-wiki" class="pull-right"><img src="{% static "wiki/img/github_icon.png" %}" /></a>
+        <a href="https://github.com/elongton" class="pull-right" target="_blank"><img src="{% static "wiki/img/github_icon.png" %}" /></a>
         {% endblock %}
         {% block wiki_footer_prepend %}
         {% endblock %}
-        <p>{% blocktrans %}Powered by <a href="http://www.django-wiki.org">django-wiki</a>, an open source application under the <a href="http://www.gnu.org/licenses/quick-guide-gplv3.html">GPLv3</a> license. Let knowledge be the cure.{% endblocktrans %}</p>
+        <p>{% blocktrans %}Powered by <a href="http://www.django-wiki.org">django-wiki</a>, an open source application under the <a href="http://www.gnu.org/licenses/quick-guide-gplv3.html">GPLv3</a> license. Let knowledge be the cure.{% endblocktrans %} <a href="{% login_url as wiki_login_url %}{{ wiki_login_url }}">{% trans "Log in" %}</a></p>
         <div style="clear: both"></div>
       </footer>
       </div>
